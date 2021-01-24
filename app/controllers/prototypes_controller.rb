@@ -37,13 +37,13 @@ def edit
 end
 
 def update
-  prototype=Prototype.new(prototype_params)
-  @prototype=Prototype.find(params[:id])
+  prototype=Prototype.find(params[:id])
+  
   
   if prototype.update(prototype_params)
     redirect_to prototype_path
   else
-    
+    @prototype=Prototype.new
     render :edit
   end
 end
