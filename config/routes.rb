@@ -7,6 +7,8 @@ resources :prototypes do
    
 end
 get   "/prototypes/:id/comments",to:   "prototypes#show"
-resources :users,only:[:show]
 
+resources :users,only:[:show]
 end
+
+

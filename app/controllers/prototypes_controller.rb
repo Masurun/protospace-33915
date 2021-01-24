@@ -5,6 +5,7 @@ before_action :authenticate_user!,only:[:new,:edit,:destroy,]
 
 def index
   @prototypes=Prototype.all
+ 
 end
 
 def new
@@ -19,6 +20,7 @@ def create
 if @prototype.save
 redirect_to root_path
 else
+  
   render :new
 end
 end
@@ -35,13 +37,15 @@ def edit
 end
 
 def update
-  
+  @prototype=Prototype.new(prototype_params)
   prototype=Prototype.find(params[:id])
+  
   if prototype.update(prototype_params)
-    redirect_to prototype
-    else
-      render :edit
-  end 
+    redirect_to prototype_path
+  else
+    
+    render :edit
+  end
 end
 
 def destroy
