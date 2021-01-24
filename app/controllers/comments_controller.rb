@@ -6,8 +6,8 @@ def create
     redirect_to prototype_comments_path(@comment.prototype) 
   else
     @prototype = @comment.prototype
-    @comments =@prototype.comments
-    render "prototype/show" 
+    @comments =@prototype.comments.includes(:user)
+    render "prototypes/show"
   end
 end
 
